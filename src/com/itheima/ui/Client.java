@@ -35,6 +35,7 @@ public class Client {
 	//
 	//
 	@SuppressWarnings("all")
+
 	public static void main(String[] args) {
 		//1.获取容器
 		ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
