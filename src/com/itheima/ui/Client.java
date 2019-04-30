@@ -31,8 +31,9 @@ public class Client {
 	//Bean的三种创建方式：
 	//	第一种方式：调用默认无参构造函数创建
 	//				默认情况下，如果勒种没有默认无参构造函数，会报异常
-	//
-	//
+	//	第二种方式：使用静态工厂中的方法创建对象
+	//				需要使用bean标签中的factory-method属性，指定静态工厂中创对象的方法
+	//	第三种方式：使用实例工厂中的方法创建
 	//
 	@SuppressWarnings("all")
 
@@ -41,11 +42,11 @@ public class Client {
 		ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
 
 		//2.根据bean的id获取对象
-		ICustomerService cs= (ICustomerService) ac.getBean("iCustomerService");
+//		ICustomerService cs= (ICustomerService) ac.getBean("iCustomerService");
+//		ICustomerService cs= (ICustomerService) ac.getBean("staticCustomerService");
+		ICustomerService cs= (ICustomerService) ac.getBean("instanceCustomerService");
 
-		//ICustomerDao cdao= (ICustomerDao) ac.getBean("iCustomerDao");
-
-		cs.saveCunstomer();
+		//cs.saveCunstomer();
 	}
 
 
