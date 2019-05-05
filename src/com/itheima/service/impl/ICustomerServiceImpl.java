@@ -16,6 +16,12 @@ public class ICustomerServiceImpl implements ICustomerService {
 	public ICustomerServiceImpl(){
 		System.out.println("创建ICustomerServiceImpl Bean");
 	}
+	public void init(){
+		System.out.println("ICustomerServiceImpl对象初始化了");
+	}
+	public void destory(){
+		System.out.println("ICustomerServiceImpl对象销魂");
+	}
 	@Override
 	public void saveCunstomer() {
 		System.out.println("业务层调用持久层");

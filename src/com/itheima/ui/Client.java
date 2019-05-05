@@ -35,6 +35,19 @@ public class Client {
 	//				需要使用bean标签中的factory-method属性，指定静态工厂中创对象的方法
 	//	第三种方式：使用实例工厂中的方法创建
 	//
+
+	//Bean的生命周期
+	//	涉及bean标签的两个属性：
+	//		init-method
+	//		destroy-method
+	//	单例：
+	//		出生：容器创建，对象就出生了
+	//		活着：只要容器在，对象就一直存在
+	//		死亡：容器销毁，对象消亡
+	//	多例：
+	//		出生：每次使用时，创建对象
+	//		活着：只要对象在使用，就一直活着
+	//		死亡：当对象长时间不使用，并且也没有别的对象引用时，由java的垃圾会收器回收
 	@SuppressWarnings("all")
 
 	public static void main(String[] args) {
@@ -42,10 +55,13 @@ public class Client {
 		ApplicationContext ac=new ClassPathXmlApplicationContext("bean.xml");
 
 		//2.根据bean的id获取对象
-//		ICustomerService cs= (ICustomerService) ac.getBean("iCustomerService");
+		ICustomerService cs= (ICustomerService) ac.getBean("iCustomerService");
 //		ICustomerService cs= (ICustomerService) ac.getBean("staticCustomerService");
-		ICustomerService cs= (ICustomerService) ac.getBean("instanceCustomerService");
+//		ICustomerService cs= (ICustomerService) ac.getBean("instanceCustomerService");
 
+		ICustomerService cs2= (ICustomerService) ac.getBean("iCustomerService");
+
+		System.out.println(cs==cs2);
 		//cs.saveCunstomer();
 	}
 

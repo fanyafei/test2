@@ -5,12 +5,12 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 配置资源：把对象的创建交给Spring来管理 -->
-    <bean id="iCustomerService" class="com.itheima.service.impl.ICustomerServiceImpl"></bean>
+    <bean id="iCustomerService" class="com.itheima.service.impl.ICustomerServiceImpl" scope="singleton" init-method="init" destroy-method="destory"></bean>
 
-    <!-- 配置使用静态工厂创建bean对象 -->
-    <bean id="staticCustomerService" class="com.itheima.factory.StaticFactory" factory-method="getCustomerService"></bean>
+    <!--&lt;!&ndash; 配置使用静态工厂创建bean对象 &ndash;&gt;-->
+    <!--<bean id="staticCustomerService" class="com.itheima.factory.StaticFactory" factory-method="getCustomerService"></bean>-->
 
-    <!-- 配置使用实例工厂创建bean对象 -->
-    <bean id="instanceFactory" class="com.itheima.factory.InstanceFactory" ></bean>
-    <bean id="instanceCustomerService" factory-bean="instanceFactory" factory-method="getCustomerService"></bean>
+    <!--&lt;!&ndash; 配置使用实例工厂创建bean对象 &ndash;&gt;-->
+    <!--<bean id="instanceFactory" class="com.itheima.factory.InstanceFactory" ></bean>-->
+    <!--<bean id="instanceCustomerService" factory-bean="instanceFactory" factory-method="getCustomerService"></bean>-->
 </beans>
